@@ -22,25 +22,24 @@ public record BST<T>(T value, BST<T> left, BST<T> right) {
     }
 
     /** Accepts a binary tree and returns its mirror image */
-    public static BST<T> mirror(BST<T> tree){
+    public static <T> BST<T> mirror(BST<T> tree){
         if (tree == null){
             return null;
         }
-
         BST<T> mirrorL = mirror(tree.left);
         BST<T> mirrorR = mirror(tree.right);
         return new BST<>(tree.value, mirrorR, mirrorL);
     }
 
     /** Accepts a BST and returns a LinkedList of all the elements in preorder */
-    public static <T extends Comparable<T>> LinkedList<T> preorder(BST<T> tree) {
+    public static <T> LinkedList<T> preorder(BST<T> tree) {
         LinkedList<T> result = new LinkedList<>(null, null);
         preorderHelper(tree, result);
         return result;
     }
 
     /** Copies a BST's elements onto the LinkedList provided */
-    public static <T extends Comparable<T>> void preorderHelper(BST<T> tree, LinkedList<T> result) {
+    public static <T> void preorderHelper(BST<T> tree, LinkedList<T> result) {
         if (tree == null) {
             return;
         }
@@ -50,7 +49,7 @@ public record BST<T>(T value, BST<T> left, BST<T> right) {
     }
 
     /** Accepts a BST and returns true if it contains */
-    public static <T extends Comparable<T>> boolean contains(BST tree, T element){
+    public static <T> boolean contains(BST tree, T element){
         if (tree==null){
             return false;
         } else
@@ -68,7 +67,7 @@ public record BST<T>(T value, BST<T> left, BST<T> right) {
     }
 
     /** Accepts a binary tree and a value and if the tree contains the value, returns a linked list of "left"s and "right"s representing the path from the root to the located value */
-    public static <T extends Comparable<T>> LinkedList<String> findPath(BST<T> tree, T target) {
+    public static <T> LinkedList<String> findPath(BST<T> tree, T target) {
         if (tree == null) {
             return null;
         }
