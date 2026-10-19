@@ -4,16 +4,16 @@ public record BST<T>(T value, BST<T> left, BST<T> right) {
         return value;
     }
 
-    public BST getLeft(){
+    public BST <T> getLeft(){
         return left;
     }
 
-    public BST getRight(){
+    public BST <T> getRight(){
         return right;
     }
 
     /** Accepts a binary tree and returns a count of the number of nodes it contains */
-    public static int countNodes(BST tree){
+    public static <T> int countNodes(BST<T> tree){
         if (tree==null){
             return 0;
         } else {
@@ -49,7 +49,7 @@ public record BST<T>(T value, BST<T> left, BST<T> right) {
     }
 
     /** Accepts a BST and returns true if it contains */
-    public static <T> boolean contains(BST tree, T element){
+    public static <T> boolean contains(BST<T> tree, T element){
         if (tree==null){
             return false;
         } else
